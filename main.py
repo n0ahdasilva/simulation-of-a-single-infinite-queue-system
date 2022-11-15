@@ -24,14 +24,13 @@
 
 
 from numpy import random as r
-from re import findall
 from sys import argv
 from sys import exit as sys_exit
 
 import network_simulation as ns
 
 # Generating a list of random numbers for random values needed in simulation.
-def exponential_random_number_generation(seed=1, rate=1, size=1):
+def exp_rand_num_gen(seed=1, rate=1, size=1):
     r.seed(seed)    # Setting the seed for predicable results.
     return list(r.exponential(scale=1/rate, size=size))
 
@@ -67,8 +66,8 @@ def main():
 
     # Initiate the simulation class with appropriate data arrays.
     simulation = ns.SingleInfiniteServerQueue(
-        interarrival_time=[0] + exponential_random_number_generation(seed=13, rate=LAMBDA, size=100_000)[1:],
-        service_time=exponential_random_number_generation(seed=5, rate=MU, size=100_000),
+        interarrival_time=[0] + exp_rand_num_gen(seed=13, rate=LAMBDA, size=100_000)[1:],
+        service_time=exp_rand_num_gen(seed=5, rate=MU, size=100_000),
     )
 
 
