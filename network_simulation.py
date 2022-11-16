@@ -23,8 +23,6 @@
 #
 
 
-from time import sleep
-
 class NetworkSimulation:
     # Receiving data needed to run the simulation.
     def __init__(self, interarrival_time=[0], service_time=[1]):

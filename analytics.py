@@ -42,16 +42,83 @@ class NetworkSimulationAnalytics:
 
     def average_number_of_packets_in_system(time_spent_in_system, departure_time):
         return sum(time_spent_in_system) / departure_time[-1]
-'''
-    def graph_plot(self, data, plot_title):
-        # We want the packet number, i.e. 1, 2, 3, ...
-        x_axis = [i for i in range(1, len(data) + 1)]
-        # Create a bar graph for queuing delay of packets.
+
+
+class NetworkSimulationGraphs:
+    def average_number_of_packets_in_system(arrival_rates=None, 
+                                            theoretical_results=None, 
+                                            simulation_results=None):
         plt.clf()
         plt.style.use('ggplot')
-        plt.bar(x_axis, data, width=1, color='cornflowerblue')
-        # Formatting 
-        plt.title(plot_title)
-        plt.xlabel('Packet number')
-        plt.ylabel('Queueing delay (seconds)')
-        plt.savefig('histograms/' + plot_title + '.png')'''
+        # Plotting the data.
+        plt.plot(
+            arrival_rates,
+            theoretical_results,
+            label='Theoretical Results',
+            color='sandybrown',
+        )
+        plt.plot(
+            arrival_rates,
+            simulation_results,
+            label='Simulation Results',
+            color='cornflowerblue',
+        )
+        # Formatting for visuals
+        plt.title('Average Number of Packets in the System vs. Arrival Rate')
+        plt.xlabel('Arrival rate (λ)')
+        plt.ylabel('Average number of packets (L)')
+        plt.legend()
+        # Save graph for accessible reference.
+        plt.savefig('graphs/' 'avg_num_packets_in_sys' + '.svg')
+
+    def average_queuing_delay(arrival_rates=None, 
+                              theoretical_results=None, 
+                              simulation_results=None):
+        plt.clf()
+        plt.style.use('ggplot')
+        # Plotting the data.
+        plt.plot(
+            arrival_rates,
+            theoretical_results,
+            label='Theoretical Results',
+            color='sandybrown',
+        )
+        plt.plot(
+            arrival_rates,
+            simulation_results,
+            label='Simulation Results',
+            color='cornflowerblue',
+        )
+        # Formatting for visuals
+        plt.title('Average Queuing Delay vs. Arrival Rate')
+        plt.xlabel('Arrival rate (λ)')
+        plt.ylabel('Average Queing Delay (Wq)')
+        plt.legend()
+        # Save graph for accessible reference.
+        plt.savefig('graphs/' 'avg_queuing_delay' + '.svg')
+
+    def average_waiting_time_delay(arrival_rates=None, 
+                                   theoretical_results=None, 
+                                   simulation_results=None):
+        plt.clf()
+        plt.style.use('ggplot')
+        # Plotting the data.
+        plt.plot(
+            arrival_rates,
+            theoretical_results,
+            label='Theoretical Results',
+            color='sandybrown',
+        )
+        plt.plot(
+            arrival_rates,
+            simulation_results,
+            label='Simulation Results',
+            color='cornflowerblue',
+        )
+        # Formatting for visuals
+        plt.title('Average Waiting Time Delay vs. Arrival Rate')
+        plt.xlabel('Arrival rate (λ)')
+        plt.ylabel('Average Waiting Time (W)')
+        plt.legend()
+        # Save graph for accessible reference.
+        plt.savefig('graphs/' 'avg_waiting_time' + '.svg')

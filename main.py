@@ -65,6 +65,10 @@ def main():
     except:
         sys_exit(arg_err_msg)
 
+    avg_n_packets = []
+    avg_queue_delay = []
+    avg_waiting_time = []
+    netsim_data = a.NetworkSimulationAnalytics
     # Initiate the simulation class with appropriate data arrays.
     for l in LAMBDA:
         netsim = ns.NetworkSimulation(
@@ -75,15 +79,33 @@ def main():
             BUFFER=-1,
             SERVER_NUM=2,
         )
-        netsim_data = a.NetworkSimulationAnalytics
-        print(f"Avg packets in sys:\t{netsim_data.average_number_of_packets_in_system(results['time_spent_in_system'], results['departure_time']):,}")
-        print(f"Avg queueing delay:\t{netsim_data.average_queuing_delay(results['queue_delay']):,}")
-        print(f"Avg time spent in sys:\t{netsim_data.average_time_spent_in_system(results['time_spent_in_system']):,}")
-        print(f"Total idle time:\t{sum(results['server_idle_time']):,}")
-        print(f"Total queue time:\t{sum(results['queue_delay']):,}")
-        print(f"Total time in sys:\t{sum(results['time_spent_in_system']):,}")
-        print(f"Simulation time:\t{results['departure_time'][-1]:,}")
-        print()
+
+        avg_n_packets.append(netsim_data.\
+            average_number_of_packets_in_system(results['time_spent_in_system'], 
+                                                results['departure_time']))
+        avg_queue_delay.append(netsim_data.\
+            average_queuing_delay(results['queue_delay']))
+
+        avg_waiting_time.append(netsim_data.\
+            average_time_spent_in_system(results['time_spent_in_system']))
+
+    netsim_graph = a.NetworkSimulationGraphs
+
+    netsim_graph.average_number_of_packets_in_system(
+        arrival_rates=LAMBDA,
+        theoretical_results=[1,1,1,1,1,1],
+        simulation_results=avg_n_packets
+    )
+    netsim_graph.average_queuing_delay(
+        arrival_rates=LAMBDA,
+        theoretical_results=[1,1,1,1,1,1],
+        simulation_results=avg_queue_delay
+    )
+    netsim_graph.average_waiting_time_delay(
+        arrival_rates=LAMBDA,
+        theoretical_results=[1,1,1,1,1,1],
+        simulation_results=avg_waiting_time
+    )
 
 
 # Execute the program.
