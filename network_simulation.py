@@ -1,7 +1,7 @@
 #
 #   PROJECT : Simulation of a Single Infinite Queue System
 # 
-#   FILENAME : simulation.py
+#   FILENAME : network_simulation.py
 # 
 #   DESCRIPTION :
 #       Simulate a single infinite queue system with two parallel servers, 

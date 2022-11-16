@@ -1,7 +1,7 @@
 #
 #   PROJECT : Simulation of a Single Infinite Queue System
 # 
-#   FILENAME : main.py
+#   FILENAME : analytics.py
 # 
 #   DESCRIPTION :
 #       Simulate a single infinite queue system with two parallel servers, 
