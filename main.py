@@ -40,7 +40,7 @@ def exp_rand_num_gen(seed=1, rate=1, size=1):
 
 
 def main():
-    arg_err_msg = "Please specify the value of λ (arrival rate), μ (service rate), and k (parallel servers) with syntax 'lambda=λ', 'mu=μ', and 'k=k'. (i.e. 'python3 -u main.py lambda=1,2,3 mu=3 k=2')"
+    arg_err_msg = "Please specify the value of λ (arrival rate), μ (service rate), and k (parallel servers) with syntax 'lambda=λ', 'mu=μ', and 'k=k'. (i.e. 'python3 -u main.py lambda=1,2,3,4,5 mu=3 k=2')"
     # Check for needed arguments when the file is executed.
     try:
         args_dict= {}
@@ -114,22 +114,6 @@ def main():
         theoretical_results=theoretical_avg_waiting_time,
         simulation_results=simulation_avg_waiting_time
     )
-
-    print(th.TheoreticalEquations(LAMBDA=1, MU=4, k=k).L())
-    print(th.TheoreticalEquations(LAMBDA=3, MU=4, k=k).L())
-    print(th.TheoreticalEquations(LAMBDA=5, MU=4, k=k).L())
-    print(th.TheoreticalEquations(LAMBDA=7, MU=4, k=k).L())
-    print()
-    print(th.TheoreticalEquations(LAMBDA=1, MU=4, k=k).Wq())
-    print(th.TheoreticalEquations(LAMBDA=3, MU=4, k=k).Wq())
-    print(th.TheoreticalEquations(LAMBDA=5, MU=4, k=k).Wq())
-    print(th.TheoreticalEquations(LAMBDA=7, MU=4, k=k).Wq())
-    print()
-    print(th.TheoreticalEquations(LAMBDA=1, MU=4, k=k).W())
-    print(th.TheoreticalEquations(LAMBDA=3, MU=4, k=k).W())
-    print(th.TheoreticalEquations(LAMBDA=5, MU=4, k=k).W())
-    print(th.TheoreticalEquations(LAMBDA=7, MU=4, k=k).W())
-    print()
 
 
 # Execute the program.
