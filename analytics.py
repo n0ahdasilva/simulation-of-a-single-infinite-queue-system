@@ -8,8 +8,14 @@
 #       using Little’s law equations to verify the correctness of implementation.
 # 
 #   FUNCTIONS :
-#       main()
-# 
+#       NetworkSimulationAnalytics.average_queuing_delay()
+#       NetworkSimulationAnalytics.average_time_spent_in_system()
+#       NetworkSimulationAnalytics.waiting_probability()
+#       NetworkSimulationAnalytics.average_number_of_packets_in_system()
+#       NetworkSimulationGraphs.average_number_of_packets_in_system()
+#       NetworkSimulationGraphs.average_queuing_delay()
+#       NetworkSimulationGraphs.average_waiting_time_delay()
+#
 #   NOTES :
 #       - ...
 # 
@@ -54,13 +60,13 @@ class NetworkSimulationGraphs:
         plt.plot(
             arrival_rates,
             theoretical_results,
-            label='Theoretical Results',
+            label='Theoretical',
             color='sandybrown',
         )
         plt.plot(
             arrival_rates,
             simulation_results,
-            label='Simulation Results',
+            label='Simulation',
             color='cornflowerblue',
         )
         # Formatting for visuals
@@ -80,13 +86,13 @@ class NetworkSimulationGraphs:
         plt.plot(
             arrival_rates,
             theoretical_results,
-            label='Theoretical Results',
+            label='Theoretical',
             color='sandybrown',
         )
         plt.plot(
             arrival_rates,
             simulation_results,
-            label='Simulation Results',
+            label='Simulation',
             color='cornflowerblue',
         )
         # Formatting for visuals
@@ -106,13 +112,13 @@ class NetworkSimulationGraphs:
         plt.plot(
             arrival_rates,
             theoretical_results,
-            label='Theoretical Results',
+            label='Theoretical',
             color='sandybrown',
         )
         plt.plot(
             arrival_rates,
             simulation_results,
-            label='Simulation Results',
+            label='Simulation',
             color='cornflowerblue',
         )
         # Formatting for visuals

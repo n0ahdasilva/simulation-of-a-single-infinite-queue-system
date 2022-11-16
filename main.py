@@ -8,6 +8,7 @@
 #       using Little’s law equations to verify the correctness of implementation.
 # 
 #   FUNCTIONS :
+#       exp_rand_num_gen()
 #       main()
 # 
 #   NOTES :
@@ -29,6 +30,7 @@ from sys import exit as sys_exit
 
 import network_simulation as ns
 import analytics as a
+
 
 # Generating a list of random numbers for random values needed in simulation.
 def exp_rand_num_gen(seed=1, rate=1, size=1):

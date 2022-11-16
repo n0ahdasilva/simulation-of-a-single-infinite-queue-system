@@ -8,7 +8,7 @@
 #       using Little’s law equations to verify the correctness of implementation.
 # 
 #   FUNCTIONS :
-#       main()
+#       NetworkSimulation.simulate()
 # 
 #   NOTES :
 #       - ...
